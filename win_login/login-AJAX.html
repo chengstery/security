@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="jquery-3.7.0.min.js"></script>
+    <title>登录</title>
+    <style>
+        #box{
+            height: 900px;
+            background-image: url(../image/1.webp);
+            text-align: center;
+        }
+        #title{
+            width: 120px;
+            font-size: 50px;
+            text-align: center;
+            color: orangered;
+            float: left;
+            margin-top: 130px;
+            margin-left: 950px;
+        }
+        #user{
+            width: 350px;
+            height: 40px;
+            float: left;
+            margin-top: 20px;
+            margin-left:840px;
+        }
+        #passwd{
+            width: 350px;
+            height: 40px;
+            float: left;
+            margin-top: 10px;
+            margin-left:840px;
+        }
+        #qg{
+            width: 350px;
+            height: 40px;
+            float: left;
+            margin-top: 10px;
+            margin-left:840px;
+        }
+
+        input{
+            width: 350px;
+            height: 35px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #btn{
+            width: 355px;
+            height: 45px;
+            float: left;
+            margin-top: 15px;
+            margin-left:840px;
+            background-color: rgb(129, 129, 255);
+        }
+
+        #btn button{
+            width: 355px;
+            height: 45px;
+            background-color: rgb(129, 129, 255);
+            font-size: 30px;
+        }
+
+        #def{
+            width: 350px;
+            height: 45px;
+            float: left;
+            margin-top: 350px;
+            margin-left:840px;
+            text-align: center;
+        }
+
+        #def span{
+            color: chartreuse;
+            font-size: 25px;
+        }
+
+    </style>
+
+    <script>
+        function doPost(){
+            // 获取表单元素的值
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var vcode = $("#vcode").val();
+
+            //通过字符串拼接为一个请求正文
+            var param = "username=" + username + "&password=" + password + "&vcode=" + vcode;
+
+            //利用AJAX发送POST请求，并获取响应
+            $.post('login.php',param,function(data){
+                if(data == 'login-pass'){
+                    window.alert("登录成功");
+                    location.href="list.php";
+                }else if(data == 'login-fail'){
+                    window,alert('登陆失败');
+                }else if(data == 'vcode-error'){
+                    window,alert('验证码错误');
+                }
+
+                // if (data.indexOf("登录成功") >=0) {
+                //     window.alert("登录成功");
+                // }
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <div id="box">
+
+        <div id="title">登  录</div>
+
+        <div id="user">
+                <input type="text" name="username" id="username">
+        </div>
+
+        <div id="passwd">
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div id="qg">
+            <input type="text" name="vcode" id="vcode">
+        </div>
+
+        <div id="btn">
+            <button onclick="doPost()">登录</button>
+        </div>
+
+        <div id="def">
+            <span>最终解释权归您所有</span>
+        </div>
+
+    </div>
+    
+</body>
+</html>
