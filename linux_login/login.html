@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <style>
+        #box{
+            height: 900px;
+            background-image: url(./image/1.webp);
+            text-align: center;
+        }
+        #title{
+            width: 120px;
+            font-size: 50px;
+            text-align: center;
+            color: orangered;
+            float: left;
+            margin-top: 130px;
+            margin-left: 950px;
+        }
+         .login{
+            width: 350px;
+            height: 40px;
+            float: left;
+            margin-top: 20px;
+            margin-left:840px;
+        }
+        /*#passwd{
+            width: 350px;
+            height: 40px;
+            float: left;
+            margin-top: 10px;
+            margin-left:840px;
+        }
+        #qg{
+            width: 350px;
+            height: 40px;
+            float: left;
+            margin-top: 10px;
+            margin-left:840px;
+        } */
+
+        input{
+            width: 350px;
+            height: 35px;
+            font-size: 20px;
+            text-align: center;
+            float: left;
+        }
+
+        input[name="vcode"]{
+            width: 210px;
+            border: solid 2px red;
+            float: left;
+        }
+
+        .login button{
+            width: 355px;
+            height: 45px;
+            background-color: rgba(129, 129, 255, 0.829);
+            font-size: 30px;
+        }
+
+        #def{
+            width: 350px;
+            height: 45px;
+            float: left;
+            margin-top: 350px;
+            margin-left:840px;
+            text-align: center;
+        }
+
+        #def span{
+            color: chartreuse;
+            font-size: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+        <div id="title">登  录</div>
+
+        <form action="login-4.php" method="POST">
+            <div class="login">
+                    <input type="text" name="username">
+            </div>
+
+            <div class="login">
+                <input type="password" name="password">
+            </div>
+
+            <div class="login">
+                <input type="text" name="vcode">&nbsp;&nbsp;&nbsp;
+                <img src="vcode.php" />
+                
+            </div>
+
+            <div class="login">
+                <button type="submit">登录</button>
+            </div>
+        </form>
+
+        <div id="def">
+            <span>最终解释权归您所有</span>
+        </div>
+
+    </div>
+    
+</body>
+</html>
